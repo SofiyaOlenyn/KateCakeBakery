@@ -21,3 +21,8 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
 
+## RUN PROGRAM:
+ 1. Install Maven.To check if Maven is correctly installed, write down this command in the terminal: mvn -v.
+ 2. Upload all dependencies from pom.xml file.
+ 3. Run method main from the file ConfectionaryApplication
+ 
