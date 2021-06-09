@@ -4,6 +4,7 @@ import com.university.confectionary.domain.entities.ProductEntity;
 import com.university.confectionary.domain.entities.ProductTypeEntity;
 import com.university.confectionary.dto.AssortementDto;
 import com.university.confectionary.dto.CatalogResponseDto;
+import com.university.confectionary.dto.ProductDetailsDto;
 import com.university.confectionary.dto.ProductDto;
 import com.university.confectionary.repositories.ProductRepository;
 import com.university.confectionary.repositories.ProductTypeRepository;
@@ -64,7 +65,13 @@ public class ProductService {
                 .body(assortementDtoList);
     }
 
+    @Transactional
+    public ResponseEntity<ProductDetailsDto> getProductDetailsById(Integer id) {
+        var product = productRepository.findProductEntityById(id).orElseThrow();
 
-
-
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                .body(new ProductDetailsDto(product.getName(),product.getPrice(),product.getWeight(),product.getImageUrl(),product.getSupplements(), product.getIngredients(), product.getId(), product.getProductTypeEntity().getType()));
+    }
 }
