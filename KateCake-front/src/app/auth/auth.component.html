@@ -1,2 +1,21 @@
 <div class='auth-container'>
+
+  <form [formGroup]="signInForm">
+    <input
+      type="text"
+      id="login"
+      class="form-control"
+      placeholder="Login"
+      formControlName="login">
+
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      placeholder="Password"
+      formControlName="password">
+
+    <button type="submit" (click)="signIn()"  [disabled]="signInForm.invalid">Зайти</button>
+  </form>
+
 </div>
