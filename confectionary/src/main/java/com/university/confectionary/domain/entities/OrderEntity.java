@@ -37,4 +37,5 @@ public class OrderEntity {
             inverseJoinColumns = @JoinColumn(name = "id"))
     private List<ProductEntity> productList;
 
+
 }

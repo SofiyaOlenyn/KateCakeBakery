@@ -1,5 +1,6 @@
 package com.university.confectionary.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,7 +43,7 @@ public class ProductEntity {
     @JoinColumn(name = "type_id")
     private ProductTypeEntity productTypeEntity;
 
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "productList")
     @ToString.Exclude List<OrderEntity> orders;
 }
