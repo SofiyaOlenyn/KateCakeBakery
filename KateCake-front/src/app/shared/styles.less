@@ -1,0 +1,116 @@
+@import "variables";
+
+.fontStyle(@family, @size, @weight: normal, @color: @primary-black, @style: normal) {
+  font-family: @family;
+  font-size: @size;
+  font-weight: @weight;
+  color: @color;
+  font-style: @style;
+}
+
+.row {
+  display: flex;
+
+  & .col {
+    display: block;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.logo {
+  outline: none;
+
+  .with-love-text {
+    margin: 0;
+  }
+
+  .kate-cake-text {
+    margin: 0;
+  }
+}
+
+.loading-div {
+  height: 50vh;
+  justify-content: center;
+
+  .loading-text {
+    color: @primary-peach;
+    text-align: center;
+    margin: 10% 0;
+  }
+}
+
+.button {
+  border: 2px solid @primary-peach;
+  border-radius: 15px;
+  padding: 3px 20px;
+  height: 8vh;
+  color: @primary-peach;
+  transition: .5s;
+  background-color: Transparent;
+  font-size: 1.8vw;
+  font-weight: 400;
+
+  &:hover,
+  &:active {
+    background-color: @primary-peach;
+    border-color: @primary-peach;
+    color: @primary-white;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.logout-button {
+  cursor: pointer;
+
+  font-size: 1.2vw;
+  height: 4vh;
+  margin: 1% auto 0 1%;
+}
+
+.stain {
+  position: absolute;
+  z-index: -1;
+  width: auto;
+  opacity: 0.8;
+}
+
+& .heading {
+  text-align: center;
+  .fontStyle(@font-dancing-script, 4vw);
+}
+
+@media only screen and (max-width: 770px) {
+  .row {
+    display: block;
+  }
+
+  .heading {
+    font-size: 12vw;
+  }
+
+  .loading-div {
+    height: 50vh;
+    justify-content: center;
+
+    .loading-text {
+      .fontStyle(@font-montserrat, 10vw, normal, @primary-peach);
+      text-align: center;
+      margin: 10% 0;
+    }
+  }
+
+  .logo {
+    .with-love-text {
+      font-size: 8vw;
+    }
+
+    .kate-cake-text {
+      font-size: 10vw;
+    }
+  }
+}
