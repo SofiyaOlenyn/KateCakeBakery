@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {DataStorageService} from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +12,8 @@ export class AuthComponent implements OnInit {
   signInForm: FormGroup;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,) {
+              private route: ActivatedRoute,
+              private dataStorage: DataStorageService) {
   }
 
   // tslint:disable-next-line:typedef
@@ -27,5 +29,13 @@ export class AuthComponent implements OnInit {
   async signIn() {
     const login = this.signInForm.get('login').value;
     const password = this.signInForm.get('password').value;
+
+    const response = await this.dataStorage.fetchLogin({login, password});
+
+    if (response.token) {
+      localStorage.setItem('token', response.token);
+      await this.router.navigate(['/home']);
+    }
   }
+
 }
