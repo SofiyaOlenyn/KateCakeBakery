@@ -1,6 +1,5 @@
 package com.university.confectionary.controller;
 
-import com.university.confectionary.domain.entities.OrderEntity;
 import com.university.confectionary.dto.AssortementDto;
 import com.university.confectionary.dto.CatalogResponseDto;
 import com.university.confectionary.dto.OrderDto;
