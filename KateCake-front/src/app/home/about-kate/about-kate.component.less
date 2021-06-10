@@ -1,0 +1,78 @@
+@import '../home.component.less';
+
+.about-kate-row {
+  width: 70vw;
+  margin: 15% auto 7% auto;
+
+  & .portrait {
+    width: 25vw;
+    margin-left: 7%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & .text-column {
+    width: 45vw;
+    position: relative;
+
+    & .heading {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      margin: 0;
+      right: 5vw;
+    }
+
+    & .detailed-text {
+      margin: 5% 7% 0 9%;
+      font-size: 1.5vw;
+    }
+  }
+
+  .lightpink-stain {
+    height: 50vh;
+    top: 135vh;
+    left: 7vw;
+  }
+
+  .gray-stain {
+    height: 50vh;
+    top: 130vh;
+    left: 65vw;
+    opacity: 0.3;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .about-kate-row {
+    width: 90vw;
+    margin-top: 40%;
+    text-align: center;
+    overflow-y: hidden;
+
+    & .portrait {
+      width: 80vw;
+      margin: 2% auto;
+    }
+
+    & .text-column {
+      width: 100%;
+
+      & .heading {
+        right: 0;
+      }
+
+      & .detailed-text {
+        margin: 10% 5%;
+        font-size: 5vw;
+      }
+    }
+
+    .lightpink-stain,
+    .darkpink-stain {
+      opacity: 0;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AuthComponent} from "./auth/auth.component";
 import {ReactiveFormsModule} from "@angular/forms";
-
+import {HomeModule} from './home/home.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +12,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
