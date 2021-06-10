@@ -1,7 +1,5 @@
 package com.university.confectionary.service;
 
-import com.university.confectionary.domain.entities.OrderEntity;
-import com.university.confectionary.domain.entities.ProductEntity;
 import com.university.confectionary.dto.OrderDto;
 import com.university.confectionary.dto.ProductOrderDto;
 import com.university.confectionary.repositories.OrderRepository;

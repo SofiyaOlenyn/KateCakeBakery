@@ -1,7 +1,5 @@
 package com.university.confectionary.service;
 
-import com.university.confectionary.domain.entities.ProductEntity;
-import com.university.confectionary.domain.entities.ProductTypeEntity;
 import com.university.confectionary.dto.AssortementDto;
 import com.university.confectionary.dto.CatalogResponseDto;
 import com.university.confectionary.dto.ProductDetailsDto;

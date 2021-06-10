@@ -1,6 +1,5 @@
 package com.university.confectionary.dto;
 
-import com.university.confectionary.domain.entities.ProductEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
