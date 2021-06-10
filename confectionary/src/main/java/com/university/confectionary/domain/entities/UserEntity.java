@@ -3,6 +3,7 @@ package com.university.confectionary.domain.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,5 +29,11 @@ public class UserEntity {
     @Column(name = "company")
     private String company;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "user_to_permissions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id")
+    )
+    private List<PermissionEntity> permissions;
 }
