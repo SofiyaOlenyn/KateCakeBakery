@@ -9,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.kma.practice8.springsecuritycustom.domain.type.Permission;
-
 import com.university.confectionary.domain.type.Permission;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
