@@ -2,7 +2,6 @@ package com.university.confectionary.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.university.confectionary.repositories.UserRepository;
-import com.university.confectionary.service.MyUserDetailsService;
 import com.university.confectionary.utils.JwtTokenGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -15,8 +14,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 import static org.springframework.http.HttpMethod.POST;
 
 @RequiredArgsConstructor
@@ -46,21 +51,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
             .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
+                .addFilter(logoutFilter())
+                .addFilterBefore(customLoginFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new AuthenticationFilter(userDetailsService(), jwtTokenGenerator), CustomLoginFilter.class)
                 .addFilterBefore(corsFilter(), SessionManagementFilter.class); //adds your custom CorsFilter
     }
-
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return new MyUserDetailsService(userRepository);
-    }
-
-    @Bean
-    @SneakyThrows
-    @Override
-    public AuthenticationManager authenticationManagerBean() {
-        return super.authenticationManagerBean();
-    }
-
 
 }

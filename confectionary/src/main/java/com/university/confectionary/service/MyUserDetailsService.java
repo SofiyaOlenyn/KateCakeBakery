@@ -1,5 +1,6 @@
 package com.university.confectionary.service;
 
+
 import com.university.confectionary.domain.entities.PermissionEntity;
 import com.university.confectionary.domain.entities.UserEntity;
 import com.university.confectionary.domain.security.AuthenticatedUser;
