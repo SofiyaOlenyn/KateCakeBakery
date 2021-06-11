@@ -1,0 +1,24 @@
+<div class="header-shrunk">
+  <div id="header-shrunk" class="header-list overlay">
+    <a class="closebtn" (click)="closeNav()">&times;</a>
+    <div class="overlay-content">
+
+      <a *ngFor="let headerItem of headerComponent.headerItemArray"
+         class="link clickable"
+         [ngClass]="{'active' : headerItem.activated}"
+         (click)="changePath(headerItem.enumParam)">
+        {{headerItem.title}}
+      </a>
+
+    </div>
+  </div>
+
+  <div class="options">
+    <img class="menu clickable" src="assets/icons/open-menu.svg" (click)="openNav()" alt="menu">
+    <div class="logo">
+      <p class="with-love-text" routerLink="/home" routerLinkActive="active">with love</p>
+      <p class="kate-cake-text" routerLink="/home" routerLinkActive="active">Kate Cake</p>
+    </div>
+  </div>
+
+</div>

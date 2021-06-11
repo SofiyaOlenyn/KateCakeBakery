@@ -45,6 +45,27 @@ public class ProductController {
         return productService.getProductDetailsById(productId);
     }
 
+    @RequestMapping(value = "/product/{productId}", method = RequestMethod.DELETE)
+    public ResponseEntity<ProductDetailsDto> deleteProduct(
+            @PathVariable final Integer productId
+    ) {
+        return productService.deleteProduct(productId);
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.PATCH)
+    public ResponseEntity updateProduct(
+            @RequestBody final ProductDetailsDto productDetailsDto
+    ) {
+        return productService.updateProduct(productDetailsDto);
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.POST)
+    public ResponseEntity<ProductDetailsDto> product(
+            @RequestBody final ProductDetailsDto productDetailsDto
+    ) {
+        return productService.addProduct(productDetailsDto);
+    }
+
     //create order by /order endpoint
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public ResponseEntity<String> product(

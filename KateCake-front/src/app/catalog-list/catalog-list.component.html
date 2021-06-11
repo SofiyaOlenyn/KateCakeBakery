@@ -1,0 +1,40 @@
+<button *ngIf="token && token !== 'null'" class="button logout-button" (click)="logOut()">Выйти</button>
+
+<app-header></app-header>
+
+<app-loading-widget *ngIf="isLoading"></app-loading-widget>
+
+<div *ngIf="!isLoading">
+
+  <div class="intro">
+    <div class="intro-row row">
+      <img class="intro-col col image" src="{{category.catalogImagePath}}" alt="cake">
+      <div class="intro-col col text">
+        <h3 class="main-heading">{{category.name}}</h3>
+        <p class="text">{{category.detailedText}}</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="add-product-button" *ngIf="token && token !== 'null'" (click)="addProduct()">Добавить продукт</button>
+
+  <div class="catalog">
+    <div class="catalog-row row"
+         *ngIf="category.items">
+      <div class="catalog-col col clickable"
+           *ngFor="let product of category.items">
+        <img class="image"
+             src="{{product.mainPhoto}}"
+             alt="cake"
+             (error)="handleError($event)"
+             (click)="changeSelectedProduct(product.id)">
+        <p class="product-name">{{product.name}}</p>
+        <p class="product-details">{{product.weight}} / {{product.price}} грн</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>
+

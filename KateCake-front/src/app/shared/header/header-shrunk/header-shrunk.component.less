@@ -1,0 +1,93 @@
+@import '../../variables.less';
+
+.header-shrunk {
+  height: 100vh;
+
+  & .options {
+    height: 100%;
+    margin: 5%;
+
+    & .logo {
+      text-align: center;
+      font-family: @font-dancing-script;
+      color: @primary-peach;
+      margin: 50% auto;
+
+      & .with-love-text,
+      & .kate-cake-text {
+        margin: 0;
+      }
+
+      & .with-love-text {
+        font-size: 12vw;
+      }
+
+      & .kate-cake-text {
+        font-size: 18vw;
+      }
+    }
+
+    & .menu {
+      outline: none;
+      height: 7vh;
+      padding: 4%;
+    }
+  }
+
+  & .overlay {
+    font-weight: 700;
+    font-family: @font-montserrat;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    display: flex;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: @primary-peach;
+    opacity: 0.95;
+    overflow: hidden;
+    transition: 0.5s;
+
+    & .overlay-content {
+      position: relative;
+      text-align: center;
+      display: block;
+      width: 80vw;
+      margin: 35% auto;
+
+      & .link {
+        width: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        padding-bottom: 30px;
+        font-size: 36px;
+        color: white;
+        display: block;
+        opacity: 0.6;
+        -webkit-transition: .5s;
+        transition: .5s;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: white;
+          opacity: 1;
+          border-bottom: 4px solid white;
+        }
+
+        &:hover {
+          margin-top: 5%;
+        }
+      }
+    }
+
+    & .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
+      color: white;
+    }
+  }
+}
