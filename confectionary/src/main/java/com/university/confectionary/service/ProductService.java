@@ -74,4 +74,66 @@ public class ProductService {
                 .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
                 .body(new ProductDetailsDto(product.getName(),product.getPrice(),product.getWeight(),product.getImageUrl(),product.getSupplements(), product.getIngredients(), product.getId(), product.getProductTypeEntity().getType()));
     }
+
+    @Transactional
+    public ProductEntity createProduct(ProductDetailsDto productDetailsDto) {
+        ProductEntity productEntity = ProductEntity.builder()
+                .name(productDetailsDto.getName())
+                .imageUrl(productDetailsDto.getMainPhoto())
+                .ingredients(productDetailsDto.getIngredients())
+                .supplements(productDetailsDto.getSupplements())
+                .weight(productDetailsDto.getWeight())
+                .price(productDetailsDto.getPrice())
+                .productTypeEntity(productTypeRepository.findProductTypeEntityByType(productDetailsDto.getProductType()))
+                .build();
+
+        return productRepository.saveAndFlush(productEntity);
+    }
+
+
+    @Transactional
+    public ResponseEntity<ProductDetailsDto> addProduct(ProductDetailsDto productDetailsDto) {
+        var product = createProduct(productDetailsDto);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                .body(new ProductDetailsDto(product));
+    }
+
+    @Transactional
+    public ResponseEntity updateProduct(ProductDetailsDto productDetailsDto) {
+        if(productRepository.findProductEntityById(productDetailsDto.getId()).isPresent()) {
+            ProductEntity productEntity = ProductEntity.builder()
+                    .id(productDetailsDto.getId())
+                    .name(productDetailsDto.getName())
+                    .imageUrl(productDetailsDto.getMainPhoto())
+                    .ingredients(productDetailsDto.getIngredients())
+                    .supplements(productDetailsDto.getSupplements())
+                    .weight(productDetailsDto.getWeight())
+                    .price(productDetailsDto.getPrice())
+                    .productTypeEntity(productTypeRepository.findProductTypeEntityByType(productDetailsDto.getProductType()))
+                    .build();
+
+
+            productRepository.saveAndFlush(productEntity);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                    .body(new ProductDetailsDto(productEntity));
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                .body("");
+    }
+
+    @Transactional
+    public ResponseEntity deleteProduct(Integer id) {
+        productRepository.deleteById(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                .body("");
+    }
 }
