@@ -1,0 +1,106 @@
+@import '../shared/styles.less';
+
+.catalog-row,
+.intro-row {
+  margin: 2% 7%;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro-row {
+  .image {
+    width: 30vw;
+    height: auto;
+  }
+
+  .text {
+    width: 40vw;
+    margin: 5% 2%;
+
+    .main-heading {
+      font-weight: 500;
+      font-size: 1.8vw;
+    }
+  }
+}
+
+.add-product-button {
+  cursor: pointer;
+
+  height: 50px;
+  width: 86%;
+  margin-left: 7%;
+
+  border: 2px solid @primary-peach;
+  border-radius: 2px;
+
+  color: @primary-peach;
+  transition: .5s;
+  background-color: Transparent;
+  font-size: 1.2vw;
+  font-weight: 400;
+
+  &:hover,
+  &:active {
+    background-color: @primary-peach;
+    border-color: @primary-peach;
+    color: @primary-white;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.catalog-row {
+  flex-wrap: wrap;
+
+  .catalog-col {
+    width: 20vw;
+    margin: 2%;
+
+    img {
+      height: 400px;
+      width: 100%;
+    }
+  }
+
+  .image {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .catalog-row,
+  .intro-row {
+    .image {
+      width: 100%;
+    }
+
+    .text {
+      width: 85vw;
+      font-size: 6vw;
+      margin: auto;
+
+      .main-heading {
+        font-size: 8vw;
+      }
+    }
+  }
+
+  .catalog-row {
+    flex-wrap: wrap;
+    margin: 15vh 0;
+
+    .catalog-col {
+      width: 60%;
+      margin: 15% auto;
+    }
+
+    .product-name {
+      font-size: 8vw;
+    }
+
+    .product-details {
+      font-size: 6vw;
+    }
+  }
+}

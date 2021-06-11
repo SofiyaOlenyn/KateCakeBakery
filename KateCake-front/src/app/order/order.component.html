@@ -1,0 +1,35 @@
+<div class='order-container'>
+
+  <form [formGroup]="orderForm">
+    <input
+      required
+      type="text"
+      id="name"
+      class="form-control"
+      placeholder="Ваше ім'я"
+      formControlName="name">
+
+    <input
+      required
+      type="email"
+      id="email"
+      class="form-control"
+      placeholder="Електронна пошта"
+      formControlName="email">
+
+    <input
+      required
+      type="text"
+      id="phone"
+      class="form-control"
+      placeholder="Номер телефону"
+      formControlName="phone">
+
+    <div>
+        <!-- All items from an order list to display here-->
+    </div>
+
+    <button type="submit" (click)="submitOrder()"  [disabled]="orderForm.invalid">Зайти</button>
+  </form>
+
+</div>
