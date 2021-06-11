@@ -1,0 +1,31 @@
+<div class="header-expanded">
+  <div class="header-list">
+
+    <a class="link clickable"
+       tabindex="0"
+       *ngFor="let headerItem of headerItemArrayRight"
+       [ngClass]="{'active' : headerItem.activated}"
+       (click)="headerComponent.changePath(headerItem.enumParam)"
+       (keydown.enter)="headerComponent.changePath(headerItem.enumParam)">
+      {{headerItem.title}}
+    </a>
+
+    <div class="logo clickable"
+         tabindex="-1"
+         (click)="headerComponent.unactivateAllLinks()"
+         (keydown.enter)="headerComponent.unactivateAllLinks()">
+      <p class="with-love-text">with love</p>
+      <p class="kate-cake-text">Kate Cake</p>
+    </div>
+
+    <a class="link clickable"
+       tabindex="0"
+       *ngFor="let headerItem of headerItemArrayLeft"
+       [ngClass]="{'active' : headerItem.activated}"
+       (click)="headerComponent.changePath(headerItem.enumParam)"
+       (keydown.enter)="headerComponent.changePath(headerItem.enumParam)">
+      {{headerItem.title}}
+    </a>
+
+  </div>
+</div>

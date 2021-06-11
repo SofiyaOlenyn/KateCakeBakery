@@ -1,0 +1,49 @@
+<h3 class="heading">Follow the process</h3>
+
+<section class="socials">
+
+  <div class="photos-row row">
+    <div *ngFor="let photoItem of photosRow; let i = index">
+      <img class="image inst-img" src="{{photoItem}}">
+    </div>
+  </div>
+
+  <div class="overlay">
+    <app-socials-widget [showMoreInfo]="true"></app-socials-widget>
+  </div>
+
+  <div class="socials-row">
+    <div class="header-list" *ngIf="screenWidth > 770">
+
+      <a class="link clickable"
+         tabindex="0"
+         *ngFor="let headerItem of headerItemArrayRight"
+         (click)="changePath(headerItem.enumParam)"
+         (keydown.enter)="changePath(headerItem.enumParam)">
+        {{headerItem.title}}
+      </a>
+
+      <div class="logo">
+        <p class="with-love-text">with love</p>
+        <p class="kate-cake-text">Kate Cake</p>
+      </div>
+
+      <a class="link clickable"
+         tabindex="0"
+         *ngFor="let headerItem of headerItemArrayLeft"
+         (click)="changePath(headerItem.enumParam)"
+         (keydown.enter)="changePath(headerItem.enumParam)">
+        {{headerItem.title}}
+      </a>
+
+    </div>
+
+    <div class="header-list" *ngIf="screenWidth <= 770">
+      <div class="logo">
+        <p class="with-love-text">with love</p>
+        <p class="kate-cake-text">Kate Cake</p>
+      </div>
+    </div>
+
+  </div>
+</section>

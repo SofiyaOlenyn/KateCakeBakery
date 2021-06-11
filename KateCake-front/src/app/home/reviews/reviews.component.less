@@ -1,0 +1,114 @@
+@import '../home.component.less';
+
+.reviews-section {
+  width: 70vw;
+  height: 100vh;
+  margin: 8% auto;
+
+  & .heading {
+    margin-bottom: 20px;
+  }
+
+  .carousel {
+    width: 100%;
+    height: 100%;
+    margin: 2% 0;
+    outline: none;
+
+    .slides-row {
+      justify-content: center;
+
+      .slide .slider-content {
+        display: block;
+        width: 95%;
+        margin: auto;
+
+        .quote {
+          .fontStyle(@font-playfair-display, 10vw);
+          margin: 0;
+        }
+
+        .text {
+          position: relative;
+          top: -50px;
+        }
+
+        .author {
+          font-weight: 500;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    #indicators {
+      display: flex;
+      margin: 10px 0;
+      justify-content: center;
+
+      & .indicator {
+        height: 10px;
+        width: 10px;
+        margin: 5px;
+      }
+    }
+  }
+
+  .yellow-stain {
+    height: 70vh;
+    top: 330vh;
+    right: 55vw;
+    opacity: 0.5;
+  }
+
+  .gray-stain {
+    height: 80vh;
+    top: 320vh;
+    left: 55vw;
+    opacity: 0.5;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .reviews-section {
+    height: auto;
+    margin: 40% auto;
+
+    .carousel {
+      .slides-row .slide .slider-content {
+        display: block;
+        width: 95%;
+        height: 100%;
+        margin: auto;
+
+        .quote {
+          font-size: 25vw;
+        }
+
+        .text {
+          font-size: 5vw;
+          top: -40px;
+        }
+
+        .author {
+          margin-bottom: 50px;
+          font-size: 4vw;
+        }
+      }
+
+
+      #indicators .indicator {
+        height: 15px;
+        width: 15px;
+      }
+    }
+
+    .yellow-stain {
+      opacity: 0;
+    }
+
+    .gray-stain {
+      opacity: 0;
+    }
+  }
+
+}

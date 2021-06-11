@@ -1,0 +1,23 @@
+<section class="assortment-section">
+  <h3 class="heading">Assortment</h3>
+
+  <div class="row assortment-row">
+    <div class="col assortment-col clickable"
+         *ngFor="let category of categories"
+         (click)="toCatalog(+category.enumEquivalent)">
+      <div class="swap-on-hover">
+        <img tabindex="0" class="image assortment-image" src="{{category.mainImagePath}}" alt="item">
+        <img class="image assortment-image-hover" src="{{category.mainImageOnHover}}" alt="item">
+      </div>
+      <p class="item-heading">
+        {{category.name}}</p>
+    </div>
+  </div>
+
+  <a i18n
+     tabindex="0"
+     href="{{telegramLink}}"
+     (keydown.enter)="redirectToTelegram()"
+     class="button order-button clickable">Заказать</a>
+
+</section>

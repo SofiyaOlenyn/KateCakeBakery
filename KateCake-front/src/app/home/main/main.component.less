@@ -1,0 +1,76 @@
+@import '../home.component.less';
+
+.main-row {
+  position: relative;
+
+  .cake {
+    position: relative;
+    margin-top: 1rem;
+    left: -10px;
+    width: 45rem;
+    height: 30rem;
+    margin-right: 5rem;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 2vw;
+    width: 32vw;
+
+    & .text-love {
+      color: @primary-peach;
+      font-style: italic;
+    }
+  }
+
+  .choose-cake-button {
+    font-size: 1.8vw;
+  }
+}
+
+.text-column {
+  text-align: center;
+  margin-top: 14vh;
+  margin-left: 5vw;
+}
+
+.gray-stain {
+  width: auto;
+  height: 650px;
+  top: -30vh;
+  right: -5rem;
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 770px) {
+  .main-row {
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    .cake {
+      width: 90vw;
+      height: 55vh;
+    }
+
+    .text {
+      font-size: 8vw;
+      width: 80vw;
+      margin: 15% auto;
+    }
+
+    .choose-cake-button {
+      width: 80vw;
+      height: 15vh;
+      font-size: 7vw;
+      padding: 20px 15px;
+    }
+  }
+
+  .text-column {
+    margin-left: 0;
+  }
+
+  .gray-stain {
+    opacity: 0;
+  }
+}
