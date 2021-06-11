@@ -5,6 +5,7 @@ import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
 import {AssortmentComponent} from './assortment/assortment.component';
 import {AboutKateComponent} from './about-kate/about-kate.component';
+import {MainComponent} from "./main/main.component";
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import {AboutKateComponent} from './about-kate/about-kate.component';
     HomeComponent,
     AboutKateComponent,
     AssortmentComponent,
+    MainComponent,
   ],
   imports: [
     CommonModule,
