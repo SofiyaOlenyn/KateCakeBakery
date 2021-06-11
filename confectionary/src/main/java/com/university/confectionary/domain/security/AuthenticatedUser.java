@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.User;
 import lombok.Getter;
 import lombok.ToString;
 
-import static org.graalvm.compiler.options.OptionType.User;
-
 @Getter
 @Setter
 @ToString(callSuper = true)
