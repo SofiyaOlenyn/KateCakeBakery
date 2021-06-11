@@ -14,7 +14,7 @@ import {UpdateProductComponent} from "./catalog-list/update-product/update-produ
 import {AddProductComponent} from "./catalog-list/add-product/add-product.component";
 import {ProductDetailedComponent} from "./catalog-list/product-detailed/product-detailed.component";
 
->>>>>>>>> Temporary merge branch 2
+
 @NgModule({
   declarations: [
     AppComponent,
