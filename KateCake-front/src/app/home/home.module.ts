@@ -7,6 +7,7 @@ import {AssortmentComponent} from './assortment/assortment.component';
 import {AboutKateComponent} from './about-kate/about-kate.component';
 import {MainComponent} from './main/main.component';
 import {ReviewsComponent} from './reviews/reviews.component';
+import {SocialsComponent} from './socials/socials.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {ReviewsComponent} from './reviews/reviews.component';
     AssortmentComponent,
     MainComponent,
     ReviewsComponent,
+    SocialsComponent
   ],
   imports: [
     CommonModule,
