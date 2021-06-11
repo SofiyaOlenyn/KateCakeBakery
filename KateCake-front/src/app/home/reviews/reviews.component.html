@@ -1,0 +1,35 @@
+<section class="reviews-section">
+
+  <h3 class="heading">Reviews</h3>
+
+  <div class="carousel">
+    <div class="row slides-row" *ngIf="reviews">
+      <div class="slide col"
+           *ngFor="let review of reviews.slice(startIndex, startIndex + itemsPerSlide)">
+        <div class="slider-content"
+             (@slides.done)="onDone($event)"
+             [@slides]="slidesState">
+          <p class="quote">&#8220;</p>
+          <p class="text">{{review.text}}"</p>
+          <h3 class="author">{{review.author}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="indicators">
+      <div class="indicator"
+           *ngFor="let indicator of reviews; let i = index">
+        <img [ngStyle]="{'opacity': activatedSlides.includes(i) ? '0.5' : '0.2'}"
+             (keydown.enter)="changeSlides(i)"
+             (click)="changeSlides(i)"
+             class="clickable"
+             src="assets/icons/circle.svg"
+             alt="indicator">
+      </div>
+    </div>
+  </div>
+
+  <img class="stain yellow-stain" src="assets/images/stains/yellow-stain-1.svg" alt="stain">
+  <img class="stain gray-stain" src="assets/images/stains/gray-stain-3.svg" alt="stain">
+
+</section>
