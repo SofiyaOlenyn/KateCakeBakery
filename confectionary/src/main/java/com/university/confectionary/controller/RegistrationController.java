@@ -1,9 +1,7 @@
 package com.university.confectionary.controller;
 
-import com.kma.practice8.springsecuritycustom.dto.RegistrResponseDto;
-import com.kma.practice8.springsecuritycustom.dto.UserCredentialsDto;
-import com.kma.practice8.springsecuritycustom.Utils.ResponseGenerator;
-import com.kma.practice8.springsecuritycustom.service.UserService;
+
+import com.university.confectionary.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
