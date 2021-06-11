@@ -13,7 +13,6 @@ import {ProductDetailedComponent} from "./catalog-list/product-detailed/product-
   declarations: [
     AppComponent,
     AuthComponent,
-    CartComponent,
     OrderComponent,
     UpdateProductComponent,
     ProductDetailedComponent,

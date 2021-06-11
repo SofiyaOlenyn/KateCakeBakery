@@ -1,0 +1,49 @@
+<div class='add-container'>
+
+  <form [formGroup]="addProduct">
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      placeholder="Название"
+      formControlName="name">
+
+    <input
+      type="text"
+      id="mainPhoto"
+      class="form-control"
+      placeholder="Главное фото"
+      formControlName="mainPhoto">
+
+    <textarea
+      type="text"
+      id="ingredients"
+      class="form-control"
+      placeholder="Ингридиенты"
+      formControlName="ingredients"></textarea>
+
+    <textarea
+      type="text"
+      id="supplements"
+      class="form-control"
+      placeholder="Возможные добавки"
+      formControlName="supplements"></textarea>
+
+    <input
+      type="text"
+      id="price"
+      class="form-control"
+      placeholder="Цена"
+      formControlName="price">
+
+    <input
+      type="text"
+      id="weight"
+      class="form-control"
+      placeholder="Вес"
+      formControlName="weight">
+
+    <button type="submit" (click)="add()" [disabled]="addProduct.invalid">Добавить</button>
+  </form>
+
+</div>
