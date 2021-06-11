@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {HomeComponent} from './home.component';
 import {HomeRoutingModule} from './home-routing.module';
-
+import {AssortmentComponent} from './assortment/assortment.component';
 import {AboutKateComponent} from './about-kate/about-kate.component';
 
 
@@ -11,6 +11,7 @@ import {AboutKateComponent} from './about-kate/about-kate.component';
   declarations: [
     HomeComponent,
     AboutKateComponent,
+    AssortmentComponent,
   ],
   imports: [
     CommonModule,
