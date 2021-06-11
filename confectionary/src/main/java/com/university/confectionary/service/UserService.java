@@ -1,11 +1,5 @@
 package com.university.confectionary.service;
 
-package com.kma.practice8.springsecuritycustom.service;
-
-import com.kma.practice8.springsecuritycustom.Utils.ResponseGenerator;
-import com.kma.practice8.springsecuritycustom.domain.entities.UserEntity;
-import com.kma.practice8.springsecuritycustom.domain.type.Permission;
-import com.kma.practice8.springsecuritycustom.repositories.UserRepository;
 import com.university.confectionary.domain.entities.UserEntity;
 import com.university.confectionary.domain.type.Permission;
 import com.university.confectionary.repositories.UserRepository;

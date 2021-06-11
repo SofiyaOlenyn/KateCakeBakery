@@ -45,6 +45,7 @@ public class ProductController {
         return productService.getProductDetailsById(productId);
     }
 
+
     @RequestMapping(value = "/product/{productId}", method = RequestMethod.DELETE)
     public ResponseEntity<ProductDetailsDto> deleteProduct(
             @PathVariable final Integer productId
