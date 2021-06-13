@@ -9,11 +9,13 @@ import {HomeModule} from './home/home.module';
 import {CatalogModule} from './catalog-list/catalog.module';
 import {AuthComponent} from './auth/auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {OrderComponent} from "./order/order.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     HomeModule,
     CatalogModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

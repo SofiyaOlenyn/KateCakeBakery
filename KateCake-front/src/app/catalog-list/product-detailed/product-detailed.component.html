@@ -34,11 +34,11 @@
         {{productDetailedInfoItem.value}}</p>
     </div>
 
-    <a href="{{telegramLink}}"
+    <div (click)="onAddToCartClicked()"
        *ngIf="!token || token === 'null'"
        class="button order-button clickable">
       Заказать
-    </a>
+    </div>
 
     <div *ngIf="token && token !== 'null'" class="buttons">
       <button class="button clickable" (click)="onUpdate()">Редактировать</button>
