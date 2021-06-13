@@ -10,7 +10,7 @@ import {Product} from './models/product.model';
 export class DataStorageService {
   isLoading = new BehaviorSubject<boolean>(true);
   isCatalogChanged = new BehaviorSubject<boolean>(null);
-  cart = new Subject<Product>();
+  cart = new BehaviorSubject<Product[]>([]);
 
   constructor(private http: HttpClient) {
   }

@@ -118,7 +118,7 @@ export class ProductDetailedComponent implements OnInit, OnDestroy {
   }
 
   onAddToCartClicked(): void {
-    this.dataStorage.cart.next(this.product)
+    this.dataStorage.cart.next(this.dataStorage.cart.getValue().concat([this.product]))
     alert('Продукт був успішно додан!')
   }
 

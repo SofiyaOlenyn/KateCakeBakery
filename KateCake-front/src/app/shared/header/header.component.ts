@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   screenWidth: number;
   headerItemArray: HeaderItemInterface[] = [];
   subscription: Subscription;
+  numberOfItems: number = 0;
 
   token = localStorage.getItem('token');
 
@@ -30,6 +31,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
       header => {
         this.headerItemArray = header;
       });
+
+    this.dataStorage.cart.subscribe(
+      items =>
+        !items
+          ? this.numberOfItems = 0
+          : this.numberOfItems = items.length );
+
+    console.log(this.numberOfItems)
   }
 
   ngOnDestroy(): void {
