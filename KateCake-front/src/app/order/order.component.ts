@@ -31,7 +31,7 @@ export class OrderComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   submitOrder() {
-    alert('Замовлення було відправлено');
+    alert('Замовлення було відправлено.');
     this.dataStorage.cart.next([])
     this.router.navigate(['/home']);
   }
