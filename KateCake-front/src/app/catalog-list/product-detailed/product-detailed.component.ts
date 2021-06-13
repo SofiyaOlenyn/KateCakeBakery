@@ -117,6 +117,11 @@ export class ProductDetailedComponent implements OnInit, OnDestroy {
     });
   }
 
+  onAddToCartClicked(): void {
+    this.dataStorage.cart.next(this.product)
+    alert('Продукт був успішно додан!')
+  }
+
   async onDelete(): Promise<void> {
     if (confirm('Вы уверены, что хотите удалить данный товар?')) {
 

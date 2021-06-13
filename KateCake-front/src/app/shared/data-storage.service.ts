@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, take} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 import {CategoriesEnum} from './constants/categories.constant';
 import {Product} from './models/product.model';
@@ -10,6 +10,7 @@ import {Product} from './models/product.model';
 export class DataStorageService {
   isLoading = new BehaviorSubject<boolean>(true);
   isCatalogChanged = new BehaviorSubject<boolean>(null);
+  cart = new Subject<Product>();
 
   constructor(private http: HttpClient) {
   }
