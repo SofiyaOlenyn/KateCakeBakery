@@ -20,7 +20,8 @@ export class OrderComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.orderForm = new FormGroup({
-        name: new FormControl(null, [Validators.required]),
+        firstName: new FormControl(null, [Validators.required]),
+        surname: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required, Validators.email]),
         phone: new FormControl(null, [Validators.required]),
       }
@@ -30,9 +31,24 @@ export class OrderComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  submitOrder() {
-    alert('Замовлення було відправлено.');
-    this.dataStorage.cart.next([])
-    this.router.navigate(['/home']);
+  async submitOrder(): Promise<void> {
+    const response = await this.dataStorage.fetchPlaceOrder(
+      {
+        name: this.orderForm.get('firstName').value,
+        surname: this.orderForm.get('surname').value,
+        email: this.orderForm.get('email').value,
+        phone: this.orderForm.get('phone').value,
+        products: this.allItems
+      }
+      );
+
+    if (response.ok) {
+      alert('Замовлення було відправлено.');
+
+      this.dataStorage.cart.next([]);
+      this.router.navigate(['/home']);
+    } else {
+      alert('Упс.. что-то пошло не так..');
+    }
   }
 }
