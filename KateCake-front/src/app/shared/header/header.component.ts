@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   headerItemArray: HeaderItemInterface[] = [];
   subscription: Subscription;
 
+  token = localStorage.getItem('token');
+
   constructor(private router: Router,
               private dataStorage: DataStorageService,
               private headerService: HeaderService) {
@@ -51,5 +53,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   unactivateAllLinks(): void {
     this.headerService.unactivateAll();
     this.router.navigate(['/home']);
+  }
+
+  toOrder(): void {
+    this.router.navigate(['/order']);
   }
 }
