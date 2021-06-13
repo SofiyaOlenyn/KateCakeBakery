@@ -1,0 +1,62 @@
+@import '../styles';
+
+.info-modal {
+  text-align: center;
+
+  .add-margin {
+    margin: 0 5%;
+  }
+
+  & .logo {
+    margin: 3% 0;
+    .fontStyle(@font-dancing-script, 1.5vw);
+
+    .kate-cake-text {
+      font-size: 2.5vw;
+    }
+  }
+
+  & .main-text {
+    margin-bottom: 10px;
+  }
+
+  & .highlighted {
+    color: @primary-peach;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .contacts {
+    margin: 15px 0;
+
+    & .background-line {
+      background-color: @primary-peach;
+      background-size: 100% 1em;
+      background-position: 100% 200%;
+      color: @primary-white;
+      font-weight: 700;
+      font-style: italic;
+    }
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .info-modal {
+    font-size: 5vw;
+
+    .contacts {
+      margin: 0;
+    }
+
+    & .logo {
+      .with-love-text {
+        font-size: 6vw;
+      }
+
+      .kate-cake-text {
+        font-size: 10vw;
+      }
+    }
+  }
+}
+

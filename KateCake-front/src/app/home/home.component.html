@@ -1,5 +1,14 @@
+<button *ngIf="token && token !== 'null'" class="button logout-button" (click)="logOut()">Выйти</button>
 
+<app-header></app-header>
 
-<div>
+<app-loading-widget *ngIf="isLoading"></app-loading-widget>
 
+<div class="infinite-scroller"
+     *ngIf="!isLoading">
+  <app-home-main></app-home-main>
+  <app-home-about-kate></app-home-about-kate>
+  <app-home-assortment [categories]="assortmentCategories"></app-home-assortment>
+  <app-home-reviews [reviews]="reviews"></app-home-reviews>
+  <app-home-socials></app-home-socials>
 </div>

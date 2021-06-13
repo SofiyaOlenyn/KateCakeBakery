@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
+import {map, take} from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
 
+import {CategoriesEnum} from './constants/categories.constant';
+import {Product} from './models/product.model';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
