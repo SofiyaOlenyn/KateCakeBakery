@@ -1,0 +1,84 @@
+@import '../styles';
+
+.footer {
+  background-color: fade(@primary-peach, 30%);
+  padding: 4%;
+  justify-content: center;
+}
+
+.col-logo {
+  width: 25vw;
+  text-align: center;
+  .fontStyle(@font-dancing-script, 2vw);
+  display: inline-block;
+  margin-top: 50px;
+
+  .kate-cake-text {
+    font-size: 4vw;
+  }
+}
+
+.col-more {
+  width: 75vw;
+  text-align: center;
+
+  & .link {
+    color: @primary-black;
+    text-decoration: none;
+    margin: 0 10px 30px 10px;
+    outline: none;
+  }
+
+  & .row {
+    justify-content: center;
+  }
+
+  & .socials {
+    margin: auto;
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .footer {
+    overflow-y: hidden;
+    padding: 4% 0;
+  }
+
+  .row {
+    display: block;
+  }
+
+  .col-logo {
+    width: 100vw;
+    margin-top: 50px;
+
+    .with-love-text {
+      font-size: 8vw;
+    }
+
+    .kate-cake-text {
+      font-size: 12vw;
+    }
+  }
+
+  .col-more {
+    width: 100vw;
+    margin: 20% 0 10% 0;
+
+    & .additional-text {
+      margin-top: 20px;
+      font-size: 6vw;
+    }
+
+    & .link {
+      font-size: 6vw;
+      margin: 0 10px 30px 10px;
+    }
+
+    & .socials {
+      margin: auto;
+      width: 80%;
+    }
+  }
+}

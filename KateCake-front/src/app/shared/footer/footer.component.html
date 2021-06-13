@@ -1,0 +1,25 @@
+<div class="footer">
+  <div class="row">
+    <div class="col col-logo logo">
+      <p class="with-love-text">with love</p>
+      <p class="kate-cake-text">Kate Cake</p>
+    </div>
+
+    <div class="col col-more">
+      <p class="additional-text">Посмотреть также:</p>
+
+      <div class="row">
+        <a class="col link clickable"
+           *ngFor="let headerItem of headerItemArray"
+           (click)="changePath(headerItem.enumParam)">
+          {{headerItem.title}}
+        </a>
+      </div>
+
+      <div class="socials">
+        <app-socials-widget [showMoreInfo]="true"></app-socials-widget>
+      </div>
+
+    </div>
+  </div>
+</div>
