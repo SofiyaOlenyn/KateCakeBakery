@@ -1,4 +1,4 @@
-package com.university.confectionary.service;
+/*package com.university.confectionary.service;
 
 import com.university.confectionary.domain.entities.OrderEntity;
 import com.university.confectionary.domain.entities.ProductEntity;
@@ -53,4 +53,4 @@ public class OrderServiceTest {
 
         assertEquals(list.get(0).getName(),newlist.get(0).getName());
     }
-}
+}*/
