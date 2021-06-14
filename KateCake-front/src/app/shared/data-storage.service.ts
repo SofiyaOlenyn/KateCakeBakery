@@ -17,7 +17,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchLogin(formData) {
-    return fetch('https://localhost:3000/my-login', {
+    return fetch('http://localhost:3000/my-login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchReviewsData() {
-    return fetch('https://localhost:3000/reviews', {
+    return fetch('http://localhost:3000/reviews', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchAllCategoriesData() {
-    return fetch(`https://localhost:3000/catalog`, {
+    return fetch(`http://localhost:3000/catalog`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchCatalogData(productType) {
-    return fetch(`https://localhost:3000/catalog/${productType.toLowerCase()}`, {
+    return fetch(`http://localhost:3000/catalog/${productType.toLowerCase()}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchProductData(productId) {
-    return fetch(`https://localhost:3000/product/${productId}`, {
+    return fetch(`http://localhost:3000/product/${productId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchAddProduct(token, data) {
-    return fetch(`https://localhost:3000/product`, {
+    return fetch(`http://localhost:3000/product`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export class DataStorageService {
   // tslint:disable-next-line:typedef
   fetchUpdateProduct(token, data) {
     console.log(data);
-    return fetch(`https://localhost:3000/product`, {
+    return fetch(`http://localhost:3000/product`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchDeleteProduct(token, productId) {
-    return fetch(`https://localhost:3000/product/${productId}`, {
+    return fetch(`http://localhost:3000/product/${productId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchLogout(token) {
-    return fetch('https://localhost:3000/logout', {
+    return fetch('http://localhost:3000/logout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchPlaceOrder(formData) {
-    return fetch('https://localhost:3000/order', {
+    return fetch('http://localhost:3000/order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchGetAllOrders(formData) {
-    return fetch('https://localhost:3000/order', {
+    return fetch('http://localhost:3000/orders', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

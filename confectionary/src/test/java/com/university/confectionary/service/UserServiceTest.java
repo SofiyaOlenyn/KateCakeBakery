@@ -1,4 +1,4 @@
-package com.university.confectionary.service;
+/*package com.university.confectionary.service;
 
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -17,4 +17,4 @@ public class UserServiceTest {
     public void testCreateUser() {
         assertTrue(userService.createUser("Alice","aCDSAdecaw2e3w"));
     }
-}
+}*/

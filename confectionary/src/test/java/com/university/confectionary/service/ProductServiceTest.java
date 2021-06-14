@@ -1,4 +1,4 @@
-package com.university.confectionary.service;
+/*package com.university.confectionary.service;
 
 import com.university.confectionary.domain.entities.ProductEntity;
 import com.university.confectionary.domain.entities.ProductTypeEntity;
@@ -92,4 +92,4 @@ public class ProductServiceTest extends TestCase {
         var product = productService.getProductDetailsById(1).getBody();
         assert product == null;
     }
-}
+}*/
