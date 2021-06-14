@@ -121,7 +121,7 @@ export class DataStorageService {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
-    }).then(async response => await response.json());
+    }).then(async response => await response);
   }
 
   // tslint:disable-next-line:typedef

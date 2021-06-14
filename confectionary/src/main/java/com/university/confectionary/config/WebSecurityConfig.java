@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/order").authenticated()
+                .antMatchers("/orders").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/product/**").authenticated()
                 .antMatchers(HttpMethod.PATCH, "/product").authenticated()
                 .antMatchers(POST, "/product").authenticated()
