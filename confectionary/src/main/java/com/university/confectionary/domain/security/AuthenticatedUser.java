@@ -13,16 +13,13 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class AuthenticatedUser extends User {
 
-    private final String companyAlias;
     private String token;
 
     public AuthenticatedUser(
             final String username,
             final String password,
-            final List<? extends GrantedAuthority> authorities,
-            final String companyAlias
+            final List<? extends GrantedAuthority> authorities
     ) {
         super(username, password, authorities);
-        this.companyAlias = companyAlias;
     }
 }

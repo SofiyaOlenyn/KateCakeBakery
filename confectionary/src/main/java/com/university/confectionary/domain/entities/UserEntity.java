@@ -26,9 +26,6 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "company")
-    private String company;
-
     @ManyToMany
     @JoinTable(
             name = "user_to_permissions",
