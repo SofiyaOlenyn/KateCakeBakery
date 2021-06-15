@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Builder
 public class UserEntity {
 
@@ -36,4 +36,12 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private List<PermissionEntity> permissions;
+
+    public UserEntity(Integer id, String login, String password, String company, List<PermissionEntity> permissions) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.company = company;
+        this.permissions = permissions;
+    }
 }
