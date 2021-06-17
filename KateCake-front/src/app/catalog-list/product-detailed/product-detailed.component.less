@@ -1,0 +1,152 @@
+@import '../../shared/styles.less';
+
+.row {
+  padding: 5%;
+  justify-content: center;
+
+  .col {
+    width: 40%;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    font-size: 0.9em;
+    margin: 1%;
+
+    width: 200px;
+  }
+}
+
+.photos {
+  .main-image-placeholder {
+    width: 30vw;
+    height: 65vh;
+    margin-bottom: 20px;
+
+    .main-image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .additional-photos {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .image {
+      width: 5vw;
+      justify-content: center;
+      margin: 2% 3%;
+      opacity: 0.6;
+      transition: opacity .4s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.overview {
+  width: 100%;
+  margin-top: 3%;
+
+  .main-heading {
+    .fontStyle(@font-montserrat, 2vw, 500, @color: @primary-black, italic);
+    text-align: center;
+  }
+
+  .block {
+    .highlighted {
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+
+  .order-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    text-decoration: none;
+    top: 20px;
+    left: 34%;
+
+    width: 200px;
+    height: 45px;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .row {
+    padding: 0;
+    justify-content: center;
+
+    .col {
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+    }
+  }
+
+  .photos {
+    .main-image-placeholder {
+      width: 80vw;
+      height: 65vh;
+      margin: 0 auto 10% auto;
+    }
+
+    .additional-photos {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      .image {
+        width: 20vw;
+        height: 20vw;
+        justify-content: center;
+        margin: 2% 5%;
+      }
+    }
+  }
+
+  .overview {
+    width: 100%;
+    margin-top: 3%;
+    padding-bottom: 70px;
+
+    .main-heading {
+      font-size: 8vw;
+    }
+
+    .text {
+      margin: 2% 5%;
+      font-size: 6vw;
+    }
+
+    .block {
+      .highlighted {
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
+
+    .order-button {
+      font-size: 6vw;
+      top: 20px;
+      left: 15%;
+    }
+  }
+
+  .buttons button {
+    font-size: 4em;
+    margin: 2%;
+  }
+}

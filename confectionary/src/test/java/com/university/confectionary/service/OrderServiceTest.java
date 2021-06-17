@@ -1,4 +1,4 @@
-package com.university.confectionary.service;
+/*package com.university.confectionary.service;
 
 import com.university.confectionary.domain.entities.OrderEntity;
 import com.university.confectionary.domain.entities.ProductEntity;
@@ -98,4 +98,4 @@ public class OrderServiceTest {
         //verify(orderRepository).save(any(OrderEntity.class));
       //  assertEquals("Order is created successfully",response);
     }
-}
+}*/

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DataStorageService} from "../../shared/data-storage.service";
-import {CategoriesEnum} from "../../shared/constants/categories.constant";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DataStorageService} from '../../shared/data-storage.service';
+import {CategoriesEnum} from '../../shared/constants/categories.constant';
 
 @Component({
   selector: 'app-add-product',

@@ -1,0 +1,51 @@
+<button *ngIf="token && token !== 'null'" class="button logout-button" (click)="logOut()">Выйти</button>
+
+<app-header></app-header>
+
+<app-loading-widget *ngIf="isLoading"></app-loading-widget>
+
+<div *ngIf="!isLoading" class="product-detailed row">
+  <div class="col photos">
+
+    <div class="main-image-placeholder"
+         (@mainPhoto.done)="onDone($event)"
+         [@mainPhoto]="mainPhotoState">
+      <img class="image main-image" (error)="handleError($event)" src="{{mainPhoto}}" alt="main-photo">
+    </div>
+
+    <div class="additional-photos">
+      <img class="image clickable"
+           *ngFor="let photo of product.otherPhotos"
+           (click)="changeMainPhoto(photo)"
+           (error)="handleError($event)"
+           src="{{photo}}"
+           alt="main-photo">
+    </div>
+
+  </div>
+
+  <div class="col overview">
+    <h3 class="main-heading">{{product.name}}</h3>
+
+    <div class="text">
+      <p class="block"
+         *ngFor="let productDetailedInfoItem of productDetailedInfo">
+        <span class="highlighted">{{productDetailedInfoItem.title}}: </span>
+        {{productDetailedInfoItem.value}}</p>
+    </div>
+
+    <div (click)="onAddToCartClicked()"
+       *ngIf="!token || token === 'null'"
+       class="button order-button clickable">
+      Заказать
+    </div>
+
+    <div *ngIf="token && token !== 'null'" class="buttons">
+      <button class="button clickable" (click)="onUpdate()">Редактировать</button>
+      <button class="button clickable" (click)="onDelete()">Удалить</button>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

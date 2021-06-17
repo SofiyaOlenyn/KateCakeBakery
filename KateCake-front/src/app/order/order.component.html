@@ -4,10 +4,18 @@
     <input
       required
       type="text"
-      id="name"
+      id="firstName"
       class="form-control"
-      placeholder="Ваше ім'я"
-      formControlName="name">
+      placeholder="Ім'я"
+      formControlName="firstName">
+
+    <input
+      required
+      type="text"
+      id="surname"
+      class="form-control"
+      placeholder="Ваше прізвище"
+      formControlName="surname">
 
     <input
       required
@@ -25,11 +33,16 @@
       placeholder="Номер телефону"
       formControlName="phone">
 
-    <div>
-        <!-- All items from an order list to display here-->
+    <div class="all-items"
+         *ngFor="let product of allItems">
+      <img class="image"
+           src="{{product.mainPhoto}}"
+           alt="cake">
+      <p class="product-name">{{product.name}}</p>
+      <p class="product-details">{{product.weight}} / {{product.price}} грн</p>
     </div>
 
-    <button type="submit" (click)="submitOrder()"  [disabled]="orderForm.invalid">Зайти</button>
+    <button type="submit" (click)="submitOrder()"  [disabled]="orderForm.invalid">Замовити</button>
   </form>
 
 </div>

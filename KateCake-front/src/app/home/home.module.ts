@@ -8,6 +8,7 @@ import {AboutKateComponent} from './about-kate/about-kate.component';
 import {MainComponent} from './main/main.component';
 import {ReviewsComponent} from './reviews/reviews.component';
 import {SocialsComponent} from './socials/socials.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -19,10 +20,11 @@ import {SocialsComponent} from './socials/socials.component';
     ReviewsComponent,
     SocialsComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-  ],
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        SharedModule,
+    ],
   providers: []
 })
 

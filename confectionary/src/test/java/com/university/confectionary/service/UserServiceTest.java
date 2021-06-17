@@ -1,4 +1,4 @@
-package com.university.confectionary.service;
+/*package com.university.confectionary.service;
 
 import com.university.confectionary.domain.entities.UserEntity;
 import com.university.confectionary.repositories.UserRepository;
@@ -57,4 +57,4 @@ public class UserServiceTest {
        // assertTrue(userService.createUser("df","dds"));
        // verify(userRepository).save(UserEntity.class);
     }
-}
+}*/
