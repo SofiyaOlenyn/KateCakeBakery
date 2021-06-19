@@ -17,6 +17,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchLogin(formData) {
+    console.log(JSON.stringify(formData));
     return fetch('http://localhost:3000/my-login', {
       method: 'POST',
       headers: {
@@ -125,11 +126,14 @@ export class DataStorageService {
   }
 
   // tslint:disable-next-line:typedef
-  fetchGetAllOrders(formData) {
-    return fetch('http://localhost:3000/orders', {
+  fetchGetAllOrders(page, token) {
+    console.log('page');
+    console.log(page);
+    return fetch(`http://localhost:3000/orders?page=${page}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: token,
       },
     }).then(async response => await response.json());
   }

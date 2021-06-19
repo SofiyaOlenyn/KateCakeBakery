@@ -1,8 +1,7 @@
 <app-header-expanded *ngIf="screenWidth > 768"></app-header-expanded>
 <app-header-shrunk *ngIf="screenWidth <= 768"></app-header-shrunk>
 
-<div class="cart" *ngIf="token" (click)="toOrder()">
+<div class="cart" *ngIf="!token" (click)="toOrder()">
   <img src="assets/icons/shopping-cart.svg" alt="cart">
   <p>{{numberOfItems}}</p>
 </div>
-

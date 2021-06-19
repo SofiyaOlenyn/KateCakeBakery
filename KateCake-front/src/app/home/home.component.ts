@@ -62,4 +62,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  toAllOrders(): void {
+    this.router.navigate(['/all-orders']);
+  }
+
 }
