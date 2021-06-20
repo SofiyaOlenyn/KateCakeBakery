@@ -27,6 +27,8 @@ public class CreatedOrderDto {
     @NotEmpty(message = "Phone can not be empty")
     private String phone;
 
+    private boolean done;
+
     private List<ProductOrderForAdminDto> products;
 
 }

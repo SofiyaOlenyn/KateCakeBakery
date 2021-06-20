@@ -2,15 +2,13 @@ package com.university.confectionary.service;
 
 import com.university.confectionary.domain.entities.OrderEntity;
 import com.university.confectionary.domain.entities.ProductEntity;
-import com.university.confectionary.dto.CreatedOrderDto;
-import com.university.confectionary.dto.OrderDto;
-import com.university.confectionary.dto.ProductOrderDto;
-import com.university.confectionary.dto.ProductOrderForAdminDto;
+import com.university.confectionary.dto.*;
 import com.university.confectionary.repositories.OrderRepository;
 import com.university.confectionary.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -33,6 +31,7 @@ public class OrderService {
                 .surname(orderDto.getSurname())
                 .email(orderDto.getEmail())
                 .phone(orderDto.getPhone())
+                .done(false)
                 .productList(productEntity)
                 .build();
 
@@ -79,10 +78,40 @@ public class OrderService {
                     .name(list.get(i).getName())
                     .surname(list.get(i).getSurname())
                     .phone(list.get(i).getPhone())
+                    .done(list.get(i).isDone())
                     .products(productOrderDtos)
                     .build();
             createdOrders.add(createdOrderDto);
         }
         return createdOrders;
+    }
+
+
+    @Transactional
+    public ResponseEntity updateOrder(CreatedOrderDto createdOrderDto) {
+        OrderEntity orderEntity = orderRepository.findById(createdOrderDto.getId()).get();
+        if(orderRepository.findById(createdOrderDto.getId()).isPresent()) {
+            OrderEntity orderEntityUpdated = OrderEntity.builder()
+                    .id(orderEntity.getId())
+                    .name(orderEntity.getName())
+                    .surname(orderEntity.getSurname())
+                    .email(orderEntity.getEmail())
+                    .phone(orderEntity.getPhone())
+                    .done(createdOrderDto.isDone())
+                    .productList(orderEntity.getProductList())
+                    .build();
+
+
+            orderRepository.saveAndFlush(orderEntityUpdated);
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                    .body("Status successfully changed");
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
+                .body("Some conflicts exist");
     }
 }

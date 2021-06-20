@@ -51,6 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
+                .antMatchers(HttpMethod.PATCH,"/order-status-changed").authenticated()
                 .antMatchers(HttpMethod.GET,"/orders").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/product/**").authenticated()
                 .antMatchers(HttpMethod.PATCH, "/product").authenticated()

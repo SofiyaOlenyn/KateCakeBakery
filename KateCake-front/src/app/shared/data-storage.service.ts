@@ -138,4 +138,17 @@ export class DataStorageService {
     }).then(async response => await response.json());
   }
 
+  // tslint:disable-next-line:typedef
+  fetchChangeOrderStatus(formData, token) {
+    console.log(formData);
+    return fetch('http://localhost:3000/order-status-changed', {
+    method: 'PATCH',
+      headers: {
+      'Content-Type': 'application/json',
+        Authorization: token,
+    },
+    body: JSON.stringify(formData),
+  }).then(async response => await response);
+}
+
 }
