@@ -44,7 +44,7 @@ public class ProductService {
         catalog.setEnumEquivalent(productType.getEnumEquivalent());
 
         return ResponseEntity
-                .status(HttpStatus.OK)
+                .status(HttpStatus.FOUND)
                 .header(HttpHeaders.AUTHORIZATION, "generated-jwt-token")
                 .body(catalog);
     }

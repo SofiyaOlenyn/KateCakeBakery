@@ -1,4 +1,5 @@
 <button *ngIf="token && token !== 'null'" class="button logout-button" (click)="logOut()">Выйти</button>
+<button class="all-orders button logout-button" *ngIf="token" (click)="toAllOrders()">Все заказы</button>
 
 <app-header></app-header>
 

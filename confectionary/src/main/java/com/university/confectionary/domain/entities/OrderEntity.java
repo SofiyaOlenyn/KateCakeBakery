@@ -31,6 +31,9 @@ public class OrderEntity {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "done")
+    private boolean done;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "order_has_product",
             joinColumns = @JoinColumn(name = "order_id"),

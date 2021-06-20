@@ -90,7 +90,7 @@ export class CatalogListComponent implements OnInit, OnDestroy {
   handleError = e => {
     e.target.onerror = null;
     e.target.src = this.defaultImg;
-  };
+  }
 
   async logOut(): Promise<void> {
     const response = await this.dataStorage.fetchLogout(this.token);
@@ -101,5 +101,9 @@ export class CatalogListComponent implements OnInit, OnDestroy {
     } else {
       alert('Упс.. что-то пошло не так..');
     }
+  }
+
+  toAllOrders(): void {
+    this.router.navigate(['/all-orders']);
   }
 }

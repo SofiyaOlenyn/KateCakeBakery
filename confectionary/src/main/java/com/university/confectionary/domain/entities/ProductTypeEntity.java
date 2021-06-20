@@ -1,18 +1,18 @@
 package com.university.confectionary.domain.entities;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "product_type")
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
+@RequiredArgsConstructor
+@Builder
 public class ProductTypeEntity {
 
     public ProductTypeEntity(Integer id, String type, String name, String catalogImageUrl, String catalogImageHoverUrl, String detailedText, Integer enumEquivalent, List<ProductEntity> products) {
@@ -51,5 +51,22 @@ public class ProductTypeEntity {
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<ProductEntity> products;
+//
+
+    public ProductTypeEntity(Integer id, String type, String name, String catalogImageUrl, String catalogImageHoverUrl, String detailedText, Integer enumEquivalent, List<ProductEntity> products) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.catalogImageUrl = catalogImageUrl;
+        this.catalogImageHoverUrl = catalogImageHoverUrl;
+        this.detailedText = detailedText;
+        this.enumEquivalent = enumEquivalent;
+        this.products = products;
+    }
+//    public ProductTypeEntity(Integer id, String type, String name) {
+//        this.id = id;
+//        this.type = type;
+//        this.name = name;
+//    }
 
 }

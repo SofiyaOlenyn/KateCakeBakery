@@ -12,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -40,6 +41,7 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
         final UserCredentials userCredentials = objectMapper.readValue(request.getInputStream(), UserCredentials.class);
 
 
+        System.out.println(userCredentials.getPassword());
         final UsernamePasswordAuthenticationToken authToken =
             new UsernamePasswordAuthenticationToken(userCredentials.getLogin(), userCredentials.getPassword(), List.of());
 

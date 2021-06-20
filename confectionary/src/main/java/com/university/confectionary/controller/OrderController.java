@@ -2,6 +2,7 @@ package com.university.confectionary.controller;
 
 import com.university.confectionary.domain.entities.OrderEntity;
 import com.university.confectionary.dto.CreatedOrderDto;
+import com.university.confectionary.dto.ProductDetailsDto;
 import com.university.confectionary.dto.ResponseAdminDto;
 import com.university.confectionary.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +52,13 @@ public class OrderController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(responseAdminDto);
+    }
+
+
+    @RequestMapping(value = "/order-status-changed", method = RequestMethod.PATCH)
+    public ResponseEntity updateOrder(
+            @RequestBody final CreatedOrderDto createdOrderDto
+    ) {
+        return orderService.updateOrder(createdOrderDto);
     }
 }

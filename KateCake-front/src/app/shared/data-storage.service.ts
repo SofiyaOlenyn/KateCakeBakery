@@ -17,6 +17,7 @@ export class DataStorageService {
 
   // tslint:disable-next-line:typedef
   fetchLogin(formData) {
+    console.log(JSON.stringify(formData));
     return fetch('http://localhost:3000/my-login', {
       method: 'POST',
       headers: {
@@ -121,17 +122,33 @@ export class DataStorageService {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
+    }).then(async response => await response);
+  }
+
+  // tslint:disable-next-line:typedef
+  fetchGetAllOrders(page, token) {
+    console.log('page');
+    console.log(page);
+    return fetch(`http://localhost:3000/orders?page=${page}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
     }).then(async response => await response.json());
   }
 
   // tslint:disable-next-line:typedef
-  fetchGetAllOrders(formData) {
-    return fetch('http://localhost:3000/orders', {
-      method: 'GET',
+  fetchChangeOrderStatus(formData, token) {
+    console.log(formData);
+    return fetch('http://localhost:3000/order-status-changed', {
+    method: 'PATCH',
       headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(async response => await response.json());
-  }
+      'Content-Type': 'application/json',
+        Authorization: token,
+    },
+    body: JSON.stringify(formData),
+  }).then(async response => await response);
+}
 
 }

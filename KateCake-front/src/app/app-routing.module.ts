@@ -2,7 +2,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {AuthComponent} from './auth/auth.component';
 import {AddProductComponent} from './catalog-list/add-product/add-product.component';
-import {OrderComponent} from "./order/order.component";
+import {OrderComponent} from './order/order.component';
+import {OrderListComponent} from './order-list/order-list.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'order',
     component: OrderComponent
+  },
+  {
+    path: 'all-orders',
+    component: OrderListComponent
   }
 ];
 
