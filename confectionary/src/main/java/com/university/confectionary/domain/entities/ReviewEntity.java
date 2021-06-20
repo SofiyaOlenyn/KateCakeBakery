@@ -26,4 +26,9 @@ public class ReviewEntity {
     @Column(name = "author")
     private String author;
 
+    public ReviewEntity(Integer id, String text, String author) {
+        this.id = id;
+        this.text = text;
+        this.author = author;
+    }
 }

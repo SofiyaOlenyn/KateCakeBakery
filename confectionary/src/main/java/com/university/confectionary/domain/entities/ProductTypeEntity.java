@@ -15,6 +15,17 @@ import java.util.List;
 @Builder
 public class ProductTypeEntity {
 
+    public ProductTypeEntity(Integer id, String type, String name, String catalogImageUrl, String catalogImageHoverUrl, String detailedText, Integer enumEquivalent, List<ProductEntity> products) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.catalogImageUrl = catalogImageUrl;
+        this.catalogImageHoverUrl = catalogImageHoverUrl;
+        this.detailedText = detailedText;
+        this.enumEquivalent = enumEquivalent;
+        this.products = products;
+    }
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,6 +4,7 @@ import com.university.confectionary.domain.entities.ReviewEntity;
 import com.university.confectionary.dto.ReviewDto;
 import com.university.confectionary.repositories.ReviewsRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class ReviewsService {
     private final ReviewsRepository reviewsRepository;
+
+    @Autowired
+    public ReviewsService(ReviewsRepository reviewsRepository) {
+        this.reviewsRepository = reviewsRepository;
+    }
 
     @Transactional
     public ResponseEntity<List<ReviewDto>> getAllReviews() {
