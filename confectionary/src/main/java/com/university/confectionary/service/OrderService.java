@@ -6,6 +6,7 @@ import com.university.confectionary.dto.*;
 import com.university.confectionary.repositories.OrderRepository;
 import com.university.confectionary.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -15,12 +16,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
-@RequiredArgsConstructor
 public class OrderService {
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
+
+    @Autowired
+    public OrderService(ProductRepository productRepository, OrderRepository orderRepository) {
+        this.productRepository = productRepository;
+        this.orderRepository = orderRepository;
+    }
 
     @Transactional
     public ResponseEntity<String> createOrder(OrderDto orderDto) {
@@ -42,7 +49,8 @@ public class OrderService {
 
     }
 
-    private List<ProductEntity> convertToEntity(List<ProductOrderDto> products) {
+
+    List<ProductEntity> convertToEntity(List<ProductOrderDto> products) {
         List<ProductEntity> productEntities = new ArrayList<>();
         for(int i =0; i< products.size(); i++){
             ProductEntity productEntity = productRepository.findProductEntityById(products.get(i).getId()).get();
